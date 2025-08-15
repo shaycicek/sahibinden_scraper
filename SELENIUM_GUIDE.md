@@ -1,142 +1,143 @@
-# 🚗 Selenium Tabanlı Araç Scraper - Kullanım Kılavuzu
+# Selenium-Based Car Scraper - Usage Guide
 
-Bu kılavuz, bot korumasını aşmak için Selenium WebDriver kullanan gelişmiş araç scraper'ının nasıl kurulacağını ve kullanılacağını açıklar.
+This guide explains how to set up and use the advanced car scraper that uses Selenium WebDriver to bypass bot protection.
 
-## 🎯 Neden Selenium?
+## Why Selenium?
 
-### ❌ Requests Kütüphanesi Sorunları
-- 403 Forbidden hatası
-- Bot koruması tarafından engellenme
-- IP tabanlı kısıtlamalar
+### Problems with Requests Library
+- 403 Forbidden errors
+- Blocked by bot protection
+- IP-based restrictions
 
-### ✅ Selenium Avantajları
-- Gerçek tarayıcı simülasyonu
-- JavaScript desteği
-- Bot korumasını aşma
-- İnsan davranışı simülasyonu
+### Selenium Advantages
+- Real browser simulation
+- JavaScript support
+- Bypass bot protection
+- Human behavior simulation
 
-## 📋 Gereksinimler
+## Requirements
 
-### 1. Python Kütüphaneleri
+### 1. Python Libraries
 ```bash
 pip install selenium==4.15.2
 pip install beautifulsoup4
 pip install requests
+pip install undetected-chromedriver
 ```
 
 ### 2. Chrome WebDriver
-Chrome tarayıcısının yüklü olması gerekiyor. WebDriver otomatik olarak indirilecek.
+Chrome browser must be installed. WebDriver will be downloaded automatically.
 
-## 🚀 Kurulum
+## Installation
 
-### 1. Kütüphaneleri Yükle
+### 1. Install Libraries
 ```bash
 pip install -r requirements.txt
 ```
 
-### 2. Chrome Tarayıcısı
-- Google Chrome'un yüklü olduğundan emin olun
-- WebDriver otomatik olarak yönetilecek
+### 2. Chrome Browser
+- Ensure Google Chrome is installed
+- WebDriver will be managed automatically
 
-## 🎮 Kullanım Örnekleri
+## Usage Examples
 
-### 1. Temel Kullanım
+### 1. Basic Usage
 ```bash
-python selenium_car_scraper.py renault clio
+python undetected_car_scraper.py renault clio
 ```
 
-### 2. Alt Model ile
+### 2. With Submodel
 ```bash
-python selenium_car_scraper.py renault clio --submodel 1.3-tce
+python undetected_car_scraper.py renault clio --submodel 1.3-tce
 ```
 
-### 3. Vites Filtresi
+### 3. Transmission Filter
 ```bash
-python selenium_car_scraper.py renault clio --submodel 1.3-tce --transmission otomatik
+python undetected_car_scraper.py renault clio --submodel 1.3-tce --transmission otomatik
 ```
 
-### 4. Kilometre Filtresi
+### 4. Kilometer Filter
 ```bash
-python selenium_car_scraper.py renault clio --max-km 150000
+python undetected_car_scraper.py renault clio --max-km 150000
 ```
 
-### 5. Ağır Hasar Filtresi
+### 5. Heavy Damage Filter
 ```bash
-python selenium_car_scraper.py renault clio --heavy-damage hayır
+python undetected_car_scraper.py renault clio --heavy-damage hayır
 ```
 
-### 6. Yıl Aralığı
+### 6. Year Range
 ```bash
-python selenium_car_scraper.py renault clio --min-year 2020 --max-year 2023
+python undetected_car_scraper.py renault clio --min-year 2020 --max-year 2023
 ```
 
-### 7. Fiyat Aralığı
+### 7. Price Range
 ```bash
-python selenium_car_scraper.py renault clio --min-price 200000 --max-price 500000
+python undetected_car_scraper.py renault clio --min-price 200000 --max-price 500000
 ```
 
-### 8. Tüm Filtreleri Birlikte
+### 8. All Filters Combined
 ```bash
-python selenium_car_scraper.py renault clio --submodel 1.3-tce --transmission otomatik --max-km 150000 --heavy-damage hayır --max-pages 2
+python undetected_car_scraper.py renault clio --submodel 1.3-tce --transmission otomatik --max-km 150000 --heavy-damage hayır --max-pages 2
 ```
 
-### 9. Görünmez Mod (Headless)
+### 9. Headless Mode
 ```bash
-python selenium_car_scraper.py renault clio --headless
+python undetected_car_scraper.py renault clio --headless
 ```
 
-## 📋 Tüm Parametreler
+## All Parameters
 
-### Zorunlu Parametreler
-- `brand`: Araç markası (örn: renault, ford, volkswagen)
-- `model`: Araç modeli (örn: clio, focus, golf)
+### Required Parameters
+- `brand`: Car brand (e.g., renault, ford, volkswagen)
+- `model`: Car model (e.g., clio, focus, golf)
 
-### Opsiyonel Parametreler
-- `--submodel`: Alt model (örn: 1.3-tce, 1.6-tdi)
-- `--transmission`: Vites tipi (`otomatik` veya `manuel`)
-- `--heavy-damage`: Ağır hasar durumu (`evet` veya `hayır`)
-- `--exclude-damage`: Kaput değişen ve boyalı araçları hariç tut
-- `--max-km`: Maksimum kilometre
-- `--min-km`: Minimum kilometre
-- `--max-year`: Maksimum model yılı
-- `--min-year`: Minimum model yılı
-- `--max-price`: Maksimum fiyat (TL)
-- `--min-price`: Minimum fiyat (TL)
-- `--max-pages`: Maksimum sayfa sayısı (varsayılan: 3)
-- `--output-format`: Çıktı formatı (`csv`, `json`, `both`)
-- `--headless`: Tarayıcıyı görünmez modda çalıştır
+### Optional Parameters
+- `--submodel`: Submodel (e.g., 1.3-tce, 1.6-tdi)
+- `--transmission`: Transmission type (`otomatik` or `manuel`)
+- `--heavy-damage`: Heavy damage status (`evet` or `hayır`)
+- `--exclude-damage`: Exclude cars with hood replacement and paint damage
+- `--max-km`: Maximum kilometer
+- `--min-km`: Minimum kilometer
+- `--max-year`: Maximum model year
+- `--min-year`: Minimum model year
+- `--max-price`: Maximum price (TL)
+- `--min-price`: Minimum price (TL)
+- `--max-pages`: Maximum number of pages (default: 3)
+- `--output-format`: Output format (`csv`, `json`, `both`)
+- `--headless`: Run browser in headless mode
 
-## 🔧 Özellikler
+## Features
 
-### 1. İnsan Davranışı Simülasyonu
-- Rastgele bekleme süreleri (2-5 saniye)
-- Sayfa yükleme bekleme
-- Gerçekçi tarayıcı ayarları
+### 1. Human Behavior Simulation
+- Random delays (1-3 seconds)
+- Page loading waits
+- Realistic browser settings
 
-### 2. Bot Koruması Aşma
-- WebDriver özelliğini gizleme
-- Gerçekçi User-Agent
-- Otomasyon belirtilerini kaldırma
+### 2. Bot Protection Bypass
+- Hide WebDriver property
+- Realistic User-Agent
+- Remove automation indicators
 
-### 3. Hata Yönetimi
-- Sayfa yükleme zaman aşımı
-- Element bulunamama durumu
-- Bağlantı hataları
+### 3. Error Handling
+- Page loading timeouts
+- Element not found situations
+- Connection errors
 
-### 4. Çoklu Selector Desteği
-- Farklı HTML yapıları için alternatif selector'lar
-- Dinamik içerik desteği
-- Site değişikliklerine karşı dayanıklılık
+### 4. Multiple Selector Support
+- Alternative selectors for different HTML structures
+- Dynamic content support
+- Resilience to site changes
 
-## 📊 Çıktı Dosyaları
+## Output Files
 
-### CSV Dosyası (`selenium_filtered_cars.csv`)
+### CSV File (`undetected_filtered_cars.csv`)
 ```
 price,year,brand,model,fuel,transmission,km,type,hp,cc,color,damage,heavy_damage,city,county,neighborhood,url
 450000,2020,renault,clio,benzin,otomatik,75000,hatchback,130,1333,beyaz,hasarsız,hayır,istanbul,kadıköy,moda,https://...
 ```
 
-### JSON Dosyası (`selenium_filtered_cars.json`)
+### JSON File (`undetected_filtered_cars.json`)
 ```json
 [
   {
@@ -152,120 +153,159 @@ price,year,brand,model,fuel,transmission,km,type,hp,cc,color,damage,heavy_damage
 ]
 ```
 
-## 🧪 Test Senaryoları
+## Test Scenarios
 
-### Test 1: Basit Arama
+### Test 1: Basic Search
 ```bash
-python selenium_car_scraper.py renault clio --max-pages 1
+python undetected_car_scraper.py renault clio --max-pages 1
 ```
 
-### Test 2: Filtreli Arama
+### Test 2: Filtered Search
 ```bash
-python selenium_car_scraper.py renault clio --submodel 1.3-tce --transmission otomatik --max-km 150000 --heavy-damage hayır --max-pages 1
+python undetected_car_scraper.py renault clio --submodel 1.3-tce --transmission otomatik --max-km 150000 --heavy-damage hayır --max-pages 1
 ```
 
-### Test 3: Görünmez Mod
+### Test 3: Headless Mode
 ```bash
-python selenium_car_scraper.py ford focus --headless --max-pages 1
+python undetected_car_scraper.py ford focus --headless --max-pages 1
 ```
 
-## ⚠️ Önemli Notlar
+## Important Notes
 
-### 1. Performans
-- Selenium, requests'ten daha yavaştır
-- Her sayfa için 2-5 saniye bekleme
-- Gerçek tarayıcı açılır
+### 1. Performance
+- Selenium is slower than requests
+- 1-3 second delay per page
+- Real browser opens
 
-### 2. Sistem Gereksinimleri
-- Chrome tarayıcısı gerekli
-- Yeterli RAM (en az 2GB)
-- İnternet bağlantısı
+### 2. System Requirements
+- Chrome browser required
+- Sufficient RAM (at least 2GB)
+- Internet connection
 
-### 3. Sorumlu Kullanım
-- Rate limiting uygulanır
-- Sunucuya saygılı davranın
-- Çok fazla istek göndermeyin
+### 3. Responsible Usage
+- Rate limiting is implemented
+- Be respectful to the server
+- Don't send too many requests
 
-## 🔍 Sorun Giderme
+## Troubleshooting
 
-### Chrome WebDriver Hatası
+### Chrome WebDriver Error
 ```
-✗ WebDriver başlatılamadı: Message: unknown error: cannot find Chrome binary
+✗ WebDriver could not be started: Message: unknown error: cannot find Chrome binary
 ```
-**Çözüm**: Chrome tarayıcısını yükleyin
+**Solution**: Install Chrome browser
 
-### Sayfa Yükleme Hatası
+### Page Loading Error
 ```
-❌ Sayfa yüklenemedi, durduruluyor...
+❌ Page could not be loaded, stopping...
 ```
-**Çözüm**: İnternet bağlantınızı kontrol edin
+**Solution**: Check your internet connection
 
-### Element Bulunamama
+### Element Not Found
 ```
-❌ Araç işlenirken hata: NoSuchElementException
+❌ Error processing car: NoSuchElementException
 ```
-**Çözüm**: Site yapısı değişmiş olabilir, selector'ları güncelleyin
+**Solution**: Site structure may have changed, update selectors
 
-### Bellek Hatası
+### Memory Error
 ```
-❌ Beklenmeyen hata: OutOfMemoryError
+❌ Unexpected error: OutOfMemoryError
 ```
-**Çözüm**: Sayfa sayısını azaltın (`--max-pages 1`)
+**Solution**: Reduce page count (`--max-pages 1`)
 
-## 📈 Performans İpuçları
+### Undetected ChromeDriver Issues
+```
+✗ Undetected ChromeDriver could not be started
+```
+**Solution**: 
+- Update Chrome browser
+- Try running in visible mode
+- Check Chrome version compatibility
 
-### 1. Sayfa Sayısını Sınırlayın
+## Performance Tips
+
+### 1. Limit Page Count
 ```bash
---max-pages 2  # Sadece 2 sayfa tara
+--max-pages 2  # Only scan 2 pages
 ```
 
-### 2. Görünmez Mod Kullanın
+### 2. Use Headless Mode
 ```bash
---headless  # Tarayıcı penceresi açılmaz
+--headless  # Browser window won't open
 ```
 
-### 3. Çıktı Formatını Seçin
+### 3. Choose Output Format
 ```bash
---output-format csv  # Sadece CSV çıktısı
+--output-format csv  # CSV output only
 ```
 
-### 4. Filtreleri Kullanın
+### 4. Use Filters
 ```bash
---max-km 100000  # Daha az sonuç, daha hızlı işlem
+--max-km 100000  # Fewer results, faster processing
 ```
 
-## 🎯 Örnek Kullanım Senaryoları
-
-### Senaryo 1: Renault Clio 1.3 TCe Otomatik
+### 5. Use Visible Mode for Reliability
 ```bash
-python selenium_car_scraper.py renault clio --submodel 1.3-tce --transmission otomatik --max-km 150000 --heavy-damage hayır --max-pages 2
+# Don't use --headless for better reliability
+python undetected_car_scraper.py renault clio
 ```
 
-### Senaryo 2: Ford Focus Manuel 2018+
+## Example Usage Scenarios
+
+### Scenario 1: Renault Clio 1.3 TCe Automatic
 ```bash
-python selenium_car_scraper.py ford focus --transmission manuel --min-year 2018 --max-pages 2
+python undetected_car_scraper.py renault clio --submodel 1.3-tce --transmission otomatik --max-km 150000 --heavy-damage hayır --max-pages 2
 ```
 
-### Senaryo 3: Volkswagen Golf 300K TL Altı
+### Scenario 2: Ford Focus Manual 2018+
 ```bash
-python selenium_car_scraper.py volkswagen golf --max-price 300000 --min-year 2020 --max-pages 2
+python undetected_car_scraper.py ford focus --transmission manuel --min-year 2018 --max-pages 2
 ```
 
-## 🔒 Güvenlik ve Yasal Uyarılar
+### Scenario 3: Volkswagen Golf Under 300K TL
+```bash
+python undetected_car_scraper.py volkswagen golf --max-price 300000 --min-year 2020 --max-pages 2
+```
 
-1. **Sorumlu Kullanım**: Site kurallarına uyun
-2. **Rate Limiting**: Çok hızlı istek göndermeyin
-3. **Yasal Sorumluluk**: Kullanıcı sorumluluğundadır
-4. **Veri Kullanımı**: Kişisel kullanım için tasarlanmıştır
+### Scenario 4: Advanced Search with All Filters
+```bash
+python undetected_car_scraper.py renault clio --submodel 1.3-tce --transmission otomatik --heavy-damage hayır --max-km 150000 --max-price 500000 --min-year 2018 --exclude-damage --max-pages 3
+```
 
-## 📞 Destek
+## Security and Legal Warnings
 
-Sorun yaşarsanız:
-1. Chrome tarayıcısının yüklü olduğundan emin olun
-2. İnternet bağlantınızı kontrol edin
-3. Sayfa sayısını azaltın
-4. Filtreleri basitleştirin
+1. **Responsible Usage**: Follow site rules
+2. **Rate Limiting**: Don't send requests too quickly
+3. **Legal Responsibility**: User is responsible
+4. **Data Usage**: Designed for personal use
+
+## Support
+
+If you encounter issues:
+1. Ensure Chrome browser is installed
+2. Check your internet connection
+3. Reduce page count
+4. Simplify filters
+5. Try running in visible mode instead of headless
+
+## Technical Details
+
+### Undetected ChromeDriver
+- Automatically bypasses Cloudflare protection
+- Hides automation indicators
+- Simulates real browser behavior
+
+### Browser Options
+- Disabled automation flags
+- Realistic user agent
+- Stealth mode settings
+- Window size configuration
+
+### Error Recovery
+- Automatic retry mechanism
+- Graceful error handling
+- Detailed error logging
 
 ---
 
-**Not**: Bu scraper eğitim amaçlıdır ve sorumlu kullanım gerektirir.
+**Note**: This scraper is for educational purposes and requires responsible usage.

@@ -1,162 +1,216 @@
-# Güncellenmiş Araç Scraper - Kullanım Kılavuzu
+# Advanced Car Scraper - Usage Guide
 
-Bu kılavuz, gerçek sahibinden.com URL yapısına göre güncellenmiş scraper'ın nasıl kullanılacağını açıklar.
+This guide explains how to use the updated car scraper based on the actual sahibinden.com URL structure.
 
-## 🎯 Örnek URL Analizi
+## URL Structure Analysis
 
-Verdiğiniz URL: `https://www.sahibinden.com/renault-clio-1.3-tce/otomatik?a116445=1263354&a4_max=150000`
+Example URL: `https://www.sahibinden.com/renault-clio-1.3-tce/otomatik?a116445=1263354&a4_max=150000`
 
-**URL Yapısı:**
-- **Marka**: renault
+**URL Components:**
+- **Brand**: renault
 - **Model**: clio
-- **Alt Model**: 1.3-tce
-- **Vites**: otomatik (URL path'inde)
-- **Kilometre**: Maksimum 150.000 (a4_max=150000)
-- **Ağır Hasar**: Hayır (a116445=1263354)
+- **Submodel**: 1.3-tce
+- **Transmission**: otomatik (in URL path)
+- **Kilometer**: Maximum 150,000 (a4_max=150000)
+- **Heavy Damage**: No (a116445=1263354)
 
-## 🚀 Kullanım Örnekleri
+## Usage Examples
 
-### 1. Temel Kullanım
+### 1. Basic Usage
 ```bash
-python updated_car_scraper.py renault clio
+python undetected_car_scraper.py renault clio
 ```
 
-### 2. Alt Model ile
+### 2. With Submodel
 ```bash
-python updated_car_scraper.py renault clio --submodel 1.3-tce
+python undetected_car_scraper.py renault clio --submodel 1.3-tce
 ```
 
-### 3. Vites Filtresi
+### 3. Transmission Filter
 ```bash
-python updated_car_scraper.py renault clio --submodel 1.3-tce --transmission otomatik
+python undetected_car_scraper.py renault clio --submodel 1.3-tce --transmission otomatik
 ```
 
-### 4. Kilometre Filtresi
+### 4. Kilometer Filter
 ```bash
-python updated_car_scraper.py renault clio --max-km 150000
+python undetected_car_scraper.py renault clio --max-km 150000
 ```
 
-### 5. Ağır Hasar Filtresi
+### 5. Heavy Damage Filter
 ```bash
-python updated_car_scraper.py renault clio --heavy-damage hayır
+python undetected_car_scraper.py renault clio --heavy-damage hayır
 ```
 
-### 6. Yıl Aralığı
+### 6. Year Range
 ```bash
-python updated_car_scraper.py renault clio --min-year 2020 --max-year 2023
+python undetected_car_scraper.py renault clio --min-year 2020 --max-year 2023
 ```
 
-### 7. Fiyat Aralığı
+### 7. Price Range
 ```bash
-python updated_car_scraper.py renault clio --min-price 200000 --max-price 500000
+python undetected_car_scraper.py renault clio --min-price 200000 --max-price 500000
 ```
 
-### 8. Tüm Filtreleri Birlikte (Örnek URL'ye Uygun)
+### 8. All Filters Combined (Matching Example URL)
 ```bash
-python updated_car_scraper.py renault clio --submodel 1.3-tce --transmission otomatik --max-km 150000 --heavy-damage hayır
+python undetected_car_scraper.py renault clio --submodel 1.3-tce --transmission otomatik --max-km 150000 --heavy-damage hayır
 ```
 
-## 📋 Tüm Filtre Seçenekleri
+## All Filter Options
 
-### Temel Parametreler
-- `brand`: Araç markası (zorunlu)
-- `model`: Araç modeli (zorunlu)
-- `--submodel`: Alt model (opsiyonel)
+### Basic Parameters
+- `brand`: Car brand (required)
+- `model`: Car model (required)
+- `--submodel`: Submodel (optional)
 
-### Filtreler
-- `--transmission`: Vites tipi (`otomatik` veya `manuel`)
-- `--heavy-damage`: Ağır hasar durumu (`evet` veya `hayır`)
-- `--exclude-damage`: Kaput değişen ve boyalı araçları hariç tut
-- `--max-km`: Maksimum kilometre
-- `--min-km`: Minimum kilometre
-- `--max-year`: Maksimum model yılı
-- `--min-year`: Minimum model yılı
-- `--max-price`: Maksimum fiyat (TL)
-- `--min-price`: Minimum fiyat (TL)
+### Filters
+- `--transmission`: Transmission type (`otomatik` or `manuel`)
+- `--heavy-damage`: Heavy damage status (`evet` or `hayır`)
+- `--exclude-damage`: Exclude cars with hood replacement and paint damage
+- `--max-km`: Maximum kilometer
+- `--min-km`: Minimum kilometer
+- `--max-year`: Maximum model year
+- `--min-year`: Minimum model year
+- `--max-price`: Maximum price (TL)
+- `--min-price`: Minimum price (TL)
 
-### Diğer Seçenekler
-- `--max-pages`: Maksimum sayfa sayısı (varsayılan: 5)
-- `--output-format`: Çıktı formatı (`csv`, `json`, `both`)
+### Other Options
+- `--max-pages`: Maximum number of pages (default: 3)
+- `--output-format`: Output format (`csv`, `json`, `both`)
+- `--headless`: Run in headless mode
 
-## 🔧 URL Yapısı
+## URL Structure
 
-Scraper şu URL yapısını kullanır:
+The scraper uses this URL structure:
 ```
-https://www.sahibinden.com/{marka}-{model}-{alt-model}/{vites}?{parametreler}
+https://www.sahibinden.com/{brand}-{model}-{submodel}/{transmission}?{parameters}
 ```
 
-### Örnek URL'ler:
+### Example URLs:
 ```
-# Temel arama
+# Basic search
 https://www.sahibinden.com/renault-clio
 
-# Alt model ile
+# With submodel
 https://www.sahibinden.com/renault-clio-1.3-tce
 
-# Vites ile
+# With transmission
 https://www.sahibinden.com/renault-clio-1.3-tce/otomatik
 
-# Filtreler ile
+# With filters
 https://www.sahibinden.com/renault-clio-1.3-tce/otomatik?a4_max=150000&a116445=1263354
 ```
 
-## 📊 Çıktı Formatları
+## Output Formats
 
-### CSV Dosyası (`filtered_cars.csv`)
-- Fiyat, model yılı, marka, model
-- Vites tipi, yakıt, kilometre
-- Hasar durumu, konum bilgileri
-- Sahibinden.com linki
+### CSV File (`undetected_filtered_cars.csv`)
+- Price, model year, brand, model
+- Transmission type, fuel, kilometer
+- Damage status, location information
+- Sahibinden.com link
 
-### JSON Dosyası (`filtered_cars.json`)
-- Tüm detayları JSON formatında
-- Programatik kullanım için ideal
+### JSON File (`undetected_filtered_cars.json`)
+- All details in JSON format
+- Ideal for programmatic use
 
-## 🧪 Test Örnekleri
+## Test Examples
 
-### Test 1: Renault Clio 1.3 TCe Otomatik
+### Test 1: Renault Clio 1.3 TCe Automatic
 ```bash
-python updated_car_scraper.py renault clio --submodel 1.3-tce --transmission otomatik --max-km 150000 --heavy-damage hayır --max-pages 2
+python undetected_car_scraper.py renault clio --submodel 1.3-tce --transmission otomatik --max-km 150000 --heavy-damage hayır --max-pages 2
 ```
 
-### Test 2: Ford Focus Manuel
+### Test 2: Ford Focus Manual
 ```bash
-python updated_car_scraper.py ford focus --transmission manuel --min-year 2018 --max-pages 2
+python undetected_car_scraper.py ford focus --transmission manuel --min-year 2018 --max-pages 2
 ```
 
 ### Test 3: Volkswagen Golf
 ```bash
-python updated_car_scraper.py volkswagen golf --max-price 300000 --min-year 2020 --max-pages 2
+python undetected_car_scraper.py volkswagen golf --max-price 300000 --min-year 2020 --max-pages 2
 ```
 
-## ⚠️ Önemli Notlar
+### Test 4: Advanced Search with All Filters
+```bash
+python undetected_car_scraper.py renault clio --submodel 1.3-tce --transmission otomatik --heavy-damage hayır --max-km 150000 --max-price 500000 --min-year 2018 --exclude-damage --max-pages 5
+```
 
-1. **Sorumlu Kullanım**: Rate limiting uygulanır (1-3 saniye bekleme)
-2. **URL Yapısı**: Gerçek sahibinden.com URL yapısına uygun
-3. **Filtre Parametreleri**: Gerçek site parametreleri kullanılır
-4. **Hata Yönetimi**: Çoklu HTML selector desteği
-5. **Session Yönetimi**: Verimli bağlantı yönetimi
+## Important Notes
 
-## 🔍 Sorun Giderme
+1. **Responsible Usage**: Rate limiting is implemented (1-3 second delays)
+2. **URL Structure**: Matches actual sahibinden.com URL structure
+3. **Filter Parameters**: Uses real site parameters
+4. **Error Handling**: Multiple HTML selector support
+5. **Session Management**: Efficient connection management
+6. **Browser Automation**: Uses undetected-chromedriver for bypassing protection
 
-### "No cars found" Hatası
-- Marka/model adını kontrol edin
-- Alt model adını doğru yazdığınızdan emin olun
-- Filtreleri çok kısıtlayıcı olabilir
+## Troubleshooting
 
-### URL Hatası
-- Marka ve model adlarını küçük harfle yazın
-- Alt model adında tire (-) kullanın
-- Özel karakterlerden kaçının
+### "No cars found" Error
+- Check brand/model name
+- Ensure submodel name is correct
+- Filters might be too restrictive
 
-### Bağlantı Hatası
-- İnternet bağlantınızı kontrol edin
-- Sahibinden.com erişilebilir mi kontrol edin
-- Proxy kullanıyorsanız ayarları kontrol edin
+### URL Error
+- Write brand and model names in lowercase
+- Use hyphens (-) in submodel names
+- Avoid special characters
 
-## 📈 Performans İpuçları
+### Connection Error
+- Check your internet connection
+- Verify sahibinden.com is accessible
+- Check proxy settings if using one
 
-1. **Sayfa Sayısını Sınırlayın**: `--max-pages 3` ile test edin
-2. **Filtreleri Kademeli Ekleyin**: Önce temel arama, sonra filtreler
-3. **Çıktı Formatını Seçin**: Sadece CSV için `--output-format csv`
-4. **Hata Durumunda**: Birkaç dakika bekleyip tekrar deneyin
+### Browser Automation Issues
+- Ensure Chrome browser is installed and updated
+- Try running in visible mode instead of headless
+- Check Chrome version compatibility
+
+## Performance Tips
+
+1. **Limit Page Count**: Test with `--max-pages 3`
+2. **Add Filters Gradually**: Start with basic search, then add filters
+3. **Choose Output Format**: Use `--output-format csv` for CSV only
+4. **Error Recovery**: Wait a few minutes and try again
+5. **Use Visible Mode**: Better reliability than headless mode
+
+## Advanced Usage Scenarios
+
+### Scenario 1: Budget Car Search
+```bash
+# Find affordable automatic cars under 300k TL
+python undetected_car_scraper.py ford focus --transmission otomatik --max-price 300000 --min-year 2015 --max-km 100000
+```
+
+### Scenario 2: Premium Car Search
+```bash
+# Find premium cars with specific criteria
+python undetected_car_scraper.py bmw 3 --submodel 320i --transmission otomatik --min-year 2020 --max-price 800000 --exclude-damage
+```
+
+### Scenario 3: Family Car Search
+```bash
+# Find family-friendly cars
+python undetected_car_scraper.py volkswagen passat --transmission otomatik --min-year 2018 --max-km 80000 --heavy-damage hayır
+```
+
+## Output File Structure
+
+### CSV Columns:
+- `price`: Price in TL
+- `year`: Model year
+- `brand`: Car brand
+- `model`: Car model
+- `fuel`: Fuel type
+- `transmission`: Transmission type
+- `km`: Kilometer
+- `type`: Car type
+- `hp`: Horsepower
+- `cc`: Engine displacement
+- `color`: Color
+- `damage`: Damage information
+- `heavy_damage`: Heavy damage status
+- `city`: City
+- `county`: County
+- `neighborhood`: Neighborhood
+- `url`: Sahibinden.com link

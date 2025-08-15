@@ -1,114 +1,149 @@
-# Kurulum Rehberi - Gelişmiş Araç Scraper
+# Installation Guide - Advanced Car Scraper
 
-Bu rehber, gelişmiş araç scraper'ını çalıştırmak için gerekli adımları içerir.
+This guide contains the necessary steps to run the advanced car scraper.
 
-## 1. Python Kurulumu
+## 1. Python Installation
 
-### Windows için:
-1. **Python'u İndirin**: https://www.python.org/downloads/
-2. **Kurulum Sırasında**: "Add Python to PATH" seçeneğini işaretleyin
-3. **Kurulumu Tamamlayın**: Tüm varsayılan ayarları kabul edin
+### For Windows:
+1. **Download Python**: https://www.python.org/downloads/
+2. **During Installation**: Check "Add Python to PATH" option
+3. **Complete Installation**: Accept all default settings
 
-### Kurulumu Doğrulayın:
+### Verify Installation:
 ```bash
 python --version
-# veya
+# or
 py --version
 ```
 
-## 2. Gerekli Kütüphaneleri Yükleyin
+## 2. Install Required Libraries
 
-Proje klasörüne gidin ve şu komutu çalıştırın:
+Navigate to the project folder and run:
 ```bash
 pip install -r requirements.txt
 ```
 
-### Manuel Kurulum:
+### Manual Installation:
 ```bash
-pip install requests beautifulsoup4
+pip install requests beautifulsoup4 selenium undetected-chromedriver
 ```
 
-## 3. Test Edin
+## 3. Test Installation
 
-### Basit Test:
+### Simple Test:
 ```bash
 python simple_test.py
 ```
 
-### Gelişmiş Test:
+### Advanced Test:
 ```bash
 python test_scraper.py
 ```
 
-## 4. Scraper'ı Kullanın
+## 4. Using the Scraper
 
-### Temel Kullanım:
+### Basic Usage:
 ```bash
-python advanced_car_scraper_fixed.py ford focus
+python undetected_car_scraper.py ford focus
 ```
 
-### Filtreleme ile:
+### With Filters:
 ```bash
-# Sadece otomatik vites
-python advanced_car_scraper_fixed.py ford focus --transmission otomatik
+# Automatic transmission only
+python undetected_car_scraper.py ford focus --transmission otomatik
 
-# Ağır hasarlı olmayan
-python advanced_car_scraper_fixed.py ford focus --heavy-damage hayır
+# No heavy damage
+python undetected_car_scraper.py ford focus --heavy-damage hayır
 
-# Kaput değişen ve boyalı olmayan
-python advanced_car_scraper_fixed.py ford focus --exclude-damage
+# Exclude hood replacement and painted cars
+python undetected_car_scraper.py ford focus --exclude-damage
 
-# Tüm filtreleri birlikte
-python advanced_car_scraper_fixed.py ford focus --transmission otomatik --heavy-damage hayır --exclude-damage
+# All filters combined
+python undetected_car_scraper.py ford focus --transmission otomatik --heavy-damage hayır --exclude-damage
+
+# With price and year limits
+python undetected_car_scraper.py ford focus --max-price 500000 --min-year 2018 --max-km 100000
 ```
 
-## 5. Sorun Giderme
+## 5. Troubleshooting
 
-### Python Bulunamadı Hatası:
-- Python'u PATH'e eklediğinizden emin olun
-- Komut istemini yeniden başlatın
-- `py` komutunu deneyin: `py --version`
+### Python Not Found Error:
+- Ensure Python is added to PATH
+- Restart command prompt
+- Try using `py` command: `py --version`
 
-### Kütüphane Kurulum Hatası:
+### Library Installation Error:
 ```bash
-# Pip'i güncelleyin
+# Update pip
 python -m pip install --upgrade pip
 
-# Kütüphaneleri tek tek kurun
+# Install libraries individually
 pip install requests
 pip install beautifulsoup4
+pip install selenium
+pip install undetected-chromedriver
 ```
 
-### İnternet Bağlantı Hatası:
-- İnternet bağlantınızı kontrol edin
-- Sahibinden.com erişilebilir mi kontrol edin
-- Proxy kullanıyorsanız ayarları kontrol edin
+### Internet Connection Error:
+- Check your internet connection
+- Verify sahibinden.com is accessible
+- Check proxy settings if using one
 
-### Site Yapısı Değişikliği:
-- Kod güncellemesi gerekebilir
-- `advanced_car_scraper_fixed.py` dosyasını kullanın
+### Site Structure Changes:
+- Code updates may be required
+- Use the latest version of `undetected_car_scraper.py`
 
-## 6. Çıktı Dosyaları
+### Chrome/ChromeDriver Issues:
+- Ensure Chrome browser is installed and up to date
+- Try running in visible mode instead of headless
+- Check Chrome version compatibility
 
-Scraper çalıştıktan sonra şu dosyalar oluşur:
-- `filtered_cars.csv`: CSV formatında araç listesi
-- `filtered_cars.json`: JSON formatında araç listesi
+## 6. Output Files
 
-## 7. Önemli Notlar
+After running the scraper, these files will be created:
+- `undetected_filtered_cars.csv`: Car list in CSV format
+- `undetected_filtered_cars.json`: Car list in JSON format
 
-⚠️ **Sorumlu Kullanım**:
-- Çok hızlı istekler göndermeyin
-- Rate limiting uygulayın
-- Sahibinden.com'un kullanım şartlarına uyun
+## 7. Important Notes
 
-⚠️ **Veri Güncelliği**:
-- Sonuçlar çalıştırma anındaki verileri yansıtır
-- Veriler sürekli güncellenir
+**Responsible Usage:**
+- Do not send requests too quickly
+- Implement rate limiting
+- Follow sahibinden.com's terms of service
 
-## 8. Destek
+**Data Currency:**
+- Results reflect data at the time of execution
+- Data is continuously updated
 
-Sorun yaşarsanız:
-1. `simple_test.py` scriptini çalıştırın
-2. Hata mesajlarını kontrol edin
-3. Python ve kütüphane versiyonlarını kontrol edin
-4. İnternet bağlantınızı test edin
+**Browser Automation:**
+- The scraper uses undetected-chromedriver to bypass protection
+- Headless mode may not work due to advanced bot detection
+- Visible mode is recommended for better reliability
+
+## 8. Support
+
+If you encounter issues:
+1. Run `simple_test.py` script
+2. Check error messages
+3. Verify Python and library versions
+4. Test your internet connection
+5. Check Chrome browser installation
+
+## 9. Advanced Features
+
+### Available Filters:
+- `--transmission`: otomatik/manuel
+- `--heavy-damage`: evet/hayır
+- `--exclude-damage`: Exclude hood replacement and painted cars
+- `--max-km` / `--min-km`: Kilometer range
+- `--max-year` / `--min-year`: Year range
+- `--max-price` / `--min-price`: Price range
+- `--max-pages`: Maximum pages to scrape (default: 3)
+- `--headless`: Run in headless mode
+- `--output-format`: csv/json/both (default: both)
+
+### Example Advanced Usage:
+```bash
+# Find automatic Renault Clio 1.3 TCE, no heavy damage, max 150k km, max 500k TL
+python undetected_car_scraper.py renault clio --submodel 1.3-tce --transmission otomatik --heavy-damage hayır --max-km 150000 --max-price 500000 --max-pages 5
+```
