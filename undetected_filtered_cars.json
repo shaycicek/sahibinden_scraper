@@ -1,17 +1,17 @@
 [
   {
-    "price": "1.135.000",
+    "price": "597.500",
     "city": "Manisa",
-    "county": "Soma",
-    "neighborhood": "Kurtuluş Mh.",
-    "year": "2020",
+    "county": "Turgutlu",
+    "neighborhood": "Cumhuriyet Mah.",
+    "year": "2019",
     "yakıt": "Benzinli",
-    "vites": "Otomatik",
-    "km": "54.500",
-    "hp": "130 hp",
-    "cc": "1332 cc",
-    "color": "Turuncu",
-    "url": "https://www.sahibinden.com/ilan/vasita-otomobil-renault-hatasiz-boyasiz-uygun-fiyata-54.000-tertemiz-clio-touch-1263739693/detay",
+    "vites": "Manuel",
+    "km": "41.000",
+    "hp": "90 hp",
+    "cc": "898 cc",
+    "color": "Gri",
+    "url": "https://www.sahibinden.com/ilan/vasita-otomobil-renault-41.000-km-sifir-ayarinda-1263162368/detay",
     "brand": "Renault",
     "model": "Clio"
   }
