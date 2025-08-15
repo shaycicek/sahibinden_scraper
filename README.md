@@ -2,7 +2,7 @@
 
 Advanced web scraper for extracting car details from Sahibinden.com using undetected-chromedriver to bypass Cloudflare protection.
 
-## 🚀 Features
+## Features
 
 - **Cloudflare Bypass**: Uses undetected-chromedriver to bypass bot protection
 - **Advanced Filtering**: Filter by brand, model, submodel, transmission, damage status, mileage, year, and price
@@ -14,7 +14,7 @@ Advanced web scraper for extracting car details from Sahibinden.com using undete
 - **Headless Mode Support**: Optional headless operation with enhanced stealth
 - **Enhanced Stealth**: Advanced bot detection avoidance techniques
 
-## 📦 Installation
+## Installation
 
 1. Install Python dependencies:
 ```bash
@@ -23,7 +23,7 @@ pip install -r requirements.txt
 
 2. Install Chrome browser (required for undetected-chromedriver)
 
-## 🎯 Usage
+## Usage
 
 ### Basic Usage
 ```bash
@@ -68,7 +68,7 @@ python undetected_car_scraper.py renault clio \
 - `--workers`: Number of parallel workers (default: 3)
 - `--output-format`: csv/json/both (default: both)
 
-## 📊 Output
+## Output
 
 The scraper generates two output files with enhanced data:
 - `undetected_filtered_cars.csv`: CSV format with all car details including hood status
@@ -80,7 +80,7 @@ The scraper generates two output files with enhanced data:
 - `heavy_damage`: Ağır hasar durumu
 - Enhanced location and specification data
 
-## ⚡ Performance Modes
+## Performance Modes
 
 ### Normal Mode
 - Sequential processing
@@ -96,7 +96,7 @@ The scraper generates two output files with enhanced data:
 - 3-5x faster than normal mode
 - Adjustable worker count (--workers)
 
-## 🛡️ Anti-Detection Features
+## Anti-Detection Features
 
 - **Enhanced Stealth**: Advanced browser fingerprinting evasion
 - **Human-like Delays**: Random delays between requests
@@ -104,7 +104,7 @@ The scraper generates two output files with enhanced data:
 - **Plugin Simulation**: Fake plugin data to appear more human
 - **Language Detection**: Turkish language preference simulation
 
-## 📁 Project Structure
+## Project Structure
 
 - `undetected_car_scraper.py`: Main scraper with advanced features
 - `requirements.txt`: Python dependencies
@@ -112,7 +112,7 @@ The scraper generates two output files with enhanced data:
 - `USAGE_GUIDE.md`: Comprehensive usage examples
 - `INSTALLATION_GUIDE.md`: Step-by-step installation guide
 
-## 🔧 Technical Details
+## Technical Details
 
 - **Browser Automation**: Selenium WebDriver with undetected-chromedriver
 - **HTML Parsing**: BeautifulSoup4 for data extraction
@@ -121,7 +121,7 @@ The scraper generates two output files with enhanced data:
 - **Rate Limiting**: Built-in delays to avoid overwhelming the server
 - **Stealth Technology**: Advanced bot detection avoidance
 
-## ⚠️ Important Notes
+## Important Notes
 
 - Use responsibly and respect the website's terms of service
 - The scraper includes delays to simulate human behavior
@@ -130,7 +130,7 @@ The scraper generates two output files with enhanced data:
 - Fast mode may trigger rate limiting - use with caution
 - Wait 15-30 minutes between large scraping sessions
 
-## 🚨 Troubleshooting
+## Troubleshooting
 
 ### Bot Detection Issues
 If you see "Olağan dışı erişim tespit ettik" error:
@@ -145,7 +145,7 @@ If you see "Olağan dışı erişim tespit ettik" error:
 3. Try running in visible mode instead of headless
 4. Check the SELENIUM_GUIDE.md for detailed troubleshooting
 
-## 📈 Performance Tips
+## Performance Tips
 
 - Use `--fast` mode for large searches (5-10x faster)
 - Limit `--max-pages` to avoid overwhelming the server
@@ -153,6 +153,6 @@ If you see "Olağan dışı erişim tespit ettik" error:
 - Run during off-peak hours for better success rates
 - Consider using VPN if you get blocked frequently
 
-## 📄 License
+## License
 
 This project is for educational purposes. Please use responsibly and in accordance with Sahibinden.com's terms of service.
